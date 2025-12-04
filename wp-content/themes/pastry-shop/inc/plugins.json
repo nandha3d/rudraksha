@@ -1,0 +1,17 @@
+[{
+  "name": "Prime Slider",
+  "slug": "bdthemes-prime-slider-lite",
+  "required": false,
+  "force_activation": false
+}, {
+  "name": "Unlimited Elements for Elementor",
+  "slug": "unlimited-elements-for-elementor",
+  "required": false,
+  "force_activation": false
+}, {
+  "name": "Elementor",
+  "slug": "elementor",
+  "required": false,
+  "force_activation": false
+}
+]
