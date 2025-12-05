@@ -22,5 +22,7 @@ class Rudraksha_Woo_Addons_Loader {
 		
 		require_once RUDRAKSHA_WOO_ADDONS_PATH . 'modules/variation-manager/class-variation-manager.php';
 		new Rudraksha_Variation_Manager();
+		
+		require_once RUDRAKSHA_WOO_ADDONS_PATH . 'modules/theme-colors/class-theme-colors.php';
 	}
 }

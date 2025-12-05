@@ -1,0 +1,76 @@
+.rudraksha-theme-colors-wrap {
+    max-width: 800px;
+}
+
+.rudraksha-theme-colors-wrap h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.rudraksha-color-settings {
+    display: flex;
+    gap: 30px;
+    margin: 30px 0;
+    flex-wrap: wrap;
+}
+
+.rudraksha-color-card {
+    background: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    min-width: 280px;
+}
+
+.rudraksha-color-card h3 {
+    margin: 0 0 8px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.rudraksha-color-card .description {
+    color: #666;
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+.rudraksha-color-card .wp-picker-container {
+    margin-bottom: 20px;
+}
+
+.color-preview {
+    padding: 20px;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 14px;
+    margin-top: 15px;
+}
+
+.color-preview.primary-preview {
+    color: #fff;
+}
+
+.color-preview.secondary-preview {
+    color: #6d2911;
+}
+
+.color-preview span {
+    display: block;
+}
+
+.rudraksha-reset-colors {
+    margin-left: 10px !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .rudraksha-color-settings {
+        flex-direction: column;
+    }
+
+    .rudraksha-color-card {
+        min-width: 100%;
+    }
+}
