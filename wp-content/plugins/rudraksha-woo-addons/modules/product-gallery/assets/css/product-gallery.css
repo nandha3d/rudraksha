@@ -1,0 +1,549 @@
+/* Custom Product Gallery Styles */
+.woocommerce-product-gallery {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+/* Main Gallery Slider - Rounded Square with Animated Glow */
+.product-gallery-slider,
+.product-gallery-slider .swiper-container,
+.woocommerce-product-gallery .flex-viewport,
+.woocommerce-product-gallery .woocommerce-product-gallery__wrapper {
+    border-radius: 30px !important;
+    overflow: hidden !important;
+}
+
+.product-gallery-slider {
+    background: #f8f8f8 !important;
+    border: 2px solid rgba(185, 74, 42, 0.3) !important;
+    animation: borderGlow 3s ease-in-out infinite;
+    aspect-ratio: 1 / 1;
+}
+
+@keyframes borderGlow {
+
+    0%,
+    100% {
+        border-color: rgba(185, 74, 42, 0.3);
+        box-shadow: 0 0 20px rgba(185, 74, 42, 0.1);
+    }
+
+    50% {
+        border-color: rgba(185, 74, 42, 0.7);
+        box-shadow: 0 0 35px rgba(185, 74, 42, 0.3);
+    }
+}
+
+.product-gallery-slider .swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8f8f8;
+    height: 100%;
+    overflow: hidden;
+    cursor: zoom-in;
+}
+
+.product-gallery-slider .swiper-slide img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.product-gallery-slider .swiper-slide.zoomed img {
+    cursor: zoom-out;
+    transform: scale(2);
+}
+
+/* Navigation Arrows - Professional Circle Style */
+.product-gallery-slider .swiper-button-next,
+.product-gallery-slider .swiper-button-prev {
+    width: 46px !important;
+    height: 46px !important;
+    background: #ffffff !important;
+    border: 1px solid #ddd !important;
+    border-radius: 50% !important;
+    opacity: 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+}
+
+.product-gallery-slider:hover .swiper-button-next,
+.product-gallery-slider:hover .swiper-button-prev {
+    opacity: 1;
+}
+
+.product-gallery-slider .swiper-button-next:hover,
+.product-gallery-slider .swiper-button-prev:hover {
+    background: #f5f5f5 !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15) !important;
+}
+
+.product-gallery-slider .swiper-button-next:after,
+.product-gallery-slider .swiper-button-prev:after {
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    color: #333 !important;
+}
+
+/* Thumbnails - Horizontal Row */
+.product-gallery-thumbs {
+    padding: 15px 0 0 0;
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 10px;
+}
+
+.product-gallery-thumbs .swiper-wrapper {
+    display: flex !important;
+    flex-direction: row !important;
+}
+
+.product-gallery-thumbs .swiper-slide {
+    opacity: 0.6;
+    transition: all 0.3s;
+    border-radius: 12px;
+    overflow: hidden;
+    height: 70px !important;
+    width: 70px !important;
+    min-width: 70px !important;
+    flex: 0 0 70px !important;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.product-gallery-thumbs .swiper-slide-thumb-active {
+    opacity: 1;
+    border-color: #B94A2A;
+}
+
+.product-gallery-thumbs .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.woocommerce-product-gallery__trigger {
+    display: none !important;
+}
+
+.product-gallery-slider .swiper-slide.zoomed {
+    z-index: 999;
+    position: relative;
+    cursor: zoom-out;
+}
+
+/* ============================================
+   Full Width Professional Product Page
+   ============================================ */
+
+/* Hide page header */
+.single-product .page-head {
+    display: none;
+}
+
+/* Prevent overflow */
+.single-product {
+    overflow-x: hidden;
+}
+
+/* Remove sidebar completely */
+.single-product #secondary,
+.single-product .sidebar,
+.single-product aside.widget-area,
+.single-product .ast-sidebar {
+    display: none !important;
+    width: 0 !important;
+}
+
+/* Full width primary content */
+.single-product #primary,
+.single-product .content-area,
+.single-product .ast-primary-content {
+    width: 100% !important;
+    max-width: 100% !important;
+    float: none !important;
+    margin: 0 !important;
+}
+
+/* Full width container */
+.single-product .ast-container,
+.single-product .container,
+.single-product .site-content .ast-container,
+.single-product .entry-content {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding: 0 60px !important;
+    margin: 0 !important;
+}
+
+/* Product wrapper - flexbox layout */
+.single-product div.product {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0 !important;
+    padding: 40px 0 !important;
+    max-width: 100% !important;
+    align-items: flex-start !important;
+}
+
+/* Gallery - 35% width with right margin for gap */
+.single-product div.product .woocommerce-product-gallery {
+    flex: 0 0 35% !important;
+    max-width: 35% !important;
+    width: 35% !important;
+    float: none !important;
+    margin: 0 !important;
+    margin-right: 60px !important;
+}
+
+/* Summary - Align with TOP of image */
+.single-product div.product .summary {
+    flex: 1 !important;
+    max-width: calc(65% - 60px) !important;
+    width: auto !important;
+    float: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    align-self: flex-start !important;
+}
+
+/* Product Title */
+.single-product .product_title {
+    font-size: 26px !important;
+    font-weight: 600 !important;
+    margin: 0 0 8px 0 !important;
+    color: #1a1a1a !important;
+    line-height: 1.25 !important;
+}
+
+/* Star Rating */
+.single-product .woocommerce-product-rating {
+    margin-bottom: 10px !important;
+}
+
+.single-product .star-rating span::before {
+    color: #f59e0b !important;
+}
+
+/* Price - Closer spacing */
+.single-product p.price,
+.single-product .summary .price {
+    font-size: 24px !important;
+    font-weight: 700 !important;
+    color: #1a1a1a !important;
+    margin-bottom: 15px !important;
+}
+
+.single-product .price del {
+    font-size: 15px !important;
+    color: #999 !important;
+    font-weight: 400 !important;
+}
+
+/* Category and Meta Info */
+.single-product .product_meta {
+    font-size: 12px !important;
+    color: #666 !important;
+    margin-top: 15px !important;
+    margin-bottom: 0 !important;
+    line-height: 1.6 !important;
+}
+
+.single-product .product_meta>span {
+    display: block !important;
+}
+
+.single-product .product_meta a {
+    color: #666 !important;
+    text-decoration: none !important;
+}
+
+/* Variations table - compact */
+.single-product .variations {
+    margin-bottom: 15px !important;
+}
+
+.single-product .variations td {
+    padding: 5px 0 !important;
+}
+
+/* ============================================
+   BUTTONS LAYOUT - Compact
+   ============================================ */
+
+/* Cart Form Layout */
+.single-product form.cart {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    gap: 10px !important;
+    margin-top: 15px !important;
+}
+
+/* Quantity */
+.single-product .quantity {
+    margin: 0 !important;
+}
+
+.single-product .quantity .qty {
+    width: 60px !important;
+    height: 38px !important;
+    border: 1px solid #ddd !important;
+    border-radius: 6px !important;
+    font-size: 14px !important;
+    text-align: center !important;
+}
+
+/* Buy Now Button - Filled */
+.single-product .buy-now-btn,
+.single-product .rudraksha-buy-now,
+.single-product .buy_now_button {
+    background: #B94A2A !important;
+    color: #fff !important;
+    border: none !important;
+    padding: 10px 20px !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    border-radius: 6px !important;
+    transition: all 0.3s ease !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+}
+
+.single-product .buy-now-btn:hover,
+.single-product .rudraksha-buy-now:hover,
+.single-product .buy_now_button:hover {
+    background: #9A3E24 !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 3px 10px rgba(185, 74, 42, 0.3) !important;
+}
+
+/* Add to Cart Button - OUTLINED */
+.single-product .single_add_to_cart_button,
+.single-product button.button.alt,
+.single-product .button.alt,
+.single-product form.cart .button {
+    background: transparent !important;
+    color: #B94A2A !important;
+    border: 2px solid #B94A2A !important;
+    padding: 9px 20px !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    border-radius: 6px !important;
+    transition: all 0.3s ease !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+}
+
+.single-product .single_add_to_cart_button:hover,
+.single-product button.button.alt:hover,
+.single-product .button.alt:hover,
+.single-product form.cart .button:hover {
+    background: #B94A2A !important;
+    color: #fff !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 3px 10px rgba(185, 74, 42, 0.3) !important;
+}
+
+/* ============================================
+   TABS
+   ============================================ */
+.single-product .woocommerce-tabs,
+.single-product .related.products,
+.single-product .up-sells {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    clear: both !important;
+}
+
+.single-product .woocommerce-tabs {
+    margin-top: 40px !important;
+    padding-top: 30px !important;
+    border-top: 1px solid #eee !important;
+}
+
+.single-product .woocommerce-tabs ul.tabs {
+    padding: 0 !important;
+    margin: 0 0 20px 0 !important;
+    border: none !important;
+    list-style: none !important;
+    display: flex !important;
+    gap: 0 !important;
+}
+
+.single-product .woocommerce-tabs ul.tabs::before,
+.single-product .woocommerce-tabs ul.tabs::after {
+    display: none !important;
+}
+
+.single-product .woocommerce-tabs ul.tabs li {
+    background: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: inline-block !important;
+}
+
+.single-product .woocommerce-tabs ul.tabs li a {
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    color: #666 !important;
+    padding: 8px 18px !important;
+    border-bottom: 2px solid transparent !important;
+    background: none !important;
+    display: block !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+}
+
+.single-product .woocommerce-tabs ul.tabs li:hover a {
+    color: #B94A2A !important;
+}
+
+.single-product .woocommerce-tabs ul.tabs li.active a {
+    color: #1a1a1a !important;
+    border-bottom-color: #B94A2A !important;
+}
+
+/* Tab panel */
+.single-product .woocommerce-tabs .panel {
+    margin: 0 !important;
+    padding: 15px 0 !important;
+}
+
+/* Related Products */
+.single-product .related.products {
+    margin-top: 40px !important;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+
+    .single-product .ast-container,
+    .single-product .container {
+        padding: 0 25px !important;
+    }
+
+    .single-product div.product .woocommerce-product-gallery,
+    .single-product div.product .summary {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        margin-right: 0 !important;
+    }
+
+    .single-product div.product .summary {
+        margin-top: 20px !important;
+    }
+
+    .product-gallery-slider .swiper-button-next,
+    .product-gallery-slider .swiper-button-prev {
+        opacity: 0.8;
+    }
+}
+
+@media (max-width: 576px) {
+
+    .single-product .ast-container,
+    .single-product .container {
+        padding: 0 15px !important;
+    }
+
+    .single-product .product_title {
+        font-size: 20px !important;
+    }
+
+    .single-product p.price {
+        font-size: 20px !important;
+    }
+}
+/* Hide Sale Badge */
+.single-product .onsale,
+.single-product span.onsale {
+    display: none !important;
+}
+
+/* Hide Clear link in variations */
+.single-product .reset_variations,
+.single-product a.reset_variations {
+    display: none !important;
+}
+
+/* Ensure Variation Price is Always Visible */
+.single-product .woocommerce-variation-price,
+.single-product .woocommerce-variation-price .price,
+.single-product .single_variation_wrap .woocommerce-variation-price {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    margin-bottom: 15px !important;
+    font-size: 24px !important;
+    font-weight: 700 !important;
+    color: #1a1a1a !important;
+}
+
+.single-product .woocommerce-variation {
+    display: block !important;
+}
+
+/* Smooth Price Transitions - Prevent Layout Jerk */
+.single-product .woocommerce-variation {
+    min-height: 50px !important;
+    transition: opacity 0.2s ease !important;
+}
+
+.single-product .woocommerce-variation-price {
+    min-height: 35px !important;
+    transition: opacity 0.2s ease !important;
+}
+
+.single-product .single_variation_wrap {
+    min-height: auto !important;
+    transition: all 0.2s ease !important;
+}
+
+/* Price always reserves space to prevent jumps */
+.single-product .woocommerce-variation-price .price {
+    min-height: 30px !important;
+    line-height: 1.3 !important;
+}
+
+/* Hide variation description if empty to prevent gaps */
+.single-product .woocommerce-variation-description:empty {
+    display: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Smooth add to cart button appearance */
+.single-product .woocommerce-variation-add-to-cart {
+    transition: opacity 0.2s ease !important;
+}
+
+/* Disabled Swatch State */
+.rudraksha-swatch-label.disabled {
+    opacity: 0.4 !important;
+    cursor: not-allowed !important;
+    pointer-events: none !important;
+}
+
+.rudraksha-swatch-label.disabled::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: #999;
+    transform: rotate(-45deg);
+}
+
+/* Disabled price styling */
+.single-product .woocommerce-variation-price.price-loading .price {
+    color: #ccc !important;
+}

@@ -1,0 +1,56 @@
+.rudraksha-buy-now-button {
+    background-color: #973b11 !important;
+    color: #fff !important;
+    border: 1px solid #973b11 !important;
+    border-radius: 5px !important;
+    padding: 8px 18px;
+    font-weight: 600;
+    font-size: 0.9em;
+    margin-right: 15px;
+    transition: all 0.3s ease;
+}
+
+.rudraksha-buy-now-button:hover {
+    background-color: #7a2e0d !important;
+    border-color: #7a2e0d !important;
+    color: #fff !important;
+}
+
+/* Style the default Add to Cart button to be outline/transparent */
+.single_add_to_cart_button {
+    background-color: transparent !important;
+    color: #333 !important;
+    border: 1px solid #ddd !important;
+    border-radius: 5px !important;
+    font-weight: 600;
+    font-size: 0.9em;
+    padding: 8px 18px;
+    transition: all 0.3s ease;
+}
+
+.single_add_to_cart_button:hover {
+    background-color: #f5f5f5 !important;
+    border-color: #ccc !important;
+}
+
+/* Ensure buttons align nicely */
+form.cart {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+/* Adjust quantity input margin if needed */
+form.cart .quantity {
+    margin-right: 10px;
+}
+
+/* Ensure it aligns well on mobile */
+@media (max-width: 768px) {
+    .rudraksha-buy-now-button {
+        margin-right: 0;
+        margin-bottom: 10px;
+        width: 100%;
+        display: block;
+    }
+}

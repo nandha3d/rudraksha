@@ -539,3 +539,20 @@ add_action( 'admin_init', function() {
  * Skips redirection after WooCommerce plugin activation
  */
 add_filter( 'woocommerce_enable_setup_wizard', '__return_false' );
+
+/**
+ * Enqueue Custom Product Gallery Assets
+ */
+function hello_shoppable_custom_product_gallery_assets() {
+    if ( is_product() ) {
+        // Enqueue Swiper CSS
+        wp_enqueue_style( 'swiper-css', 'https://unpkg.com/swiper/swiper-bundle.min.css', array(), '8.4.7' );
+
+        // Enqueue Swiper JS
+        wp_enqueue_script( 'swiper-js', 'https://unpkg.com/swiper/swiper-bundle.min.js', array('jquery'), '8.4.7', true );
+
+        // Enqueue Custom Gallery JS
+        wp_enqueue_script( 'hello-shoppable-product-gallery', get_template_directory_uri() . '/assets/js/product-gallery.js', array('jquery', 'swiper-js'), '1.0.0', true );
+    }
+}
+add_action( 'wp_enqueue_scripts', 'hello_shoppable_custom_product_gallery_assets' );

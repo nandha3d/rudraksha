@@ -1,0 +1,519 @@
+/* Variation Manager Styles */
+.rvm-wrap {
+    max-width: 100%;
+}
+
+.rvm-product-selector {
+    background: #fff;
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.rvm-product-selector h2 {
+    margin-top: 0;
+    font-size: 18px;
+}
+
+#rvm-product-select {
+    margin-right: 10px;
+    padding: 6px 12px;
+    min-height: 36px;
+}
+
+#rvm-variations-container {
+    margin-top: 30px;
+}
+
+.rvm-variations-header {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow-x: auto;
+}
+
+.rvm-table-header {
+    display: grid;
+    grid-template-columns: 100px 180px 120px 150px 100px 100px 80px 80px 100px 100px 120px 100px;
+    gap: 15px;
+    padding: 15px;
+    background: #f5f5f5;
+    border-bottom: 2px solid #ddd;
+    font-weight: 600;
+    font-size: 12px;
+    color: #555;
+    text-transform: uppercase;
+    align-items: center;
+}
+
+.rvm-table-header>div {
+    text-align: left;
+}
+
+/* Variation Row */
+.rvm-variation-row {
+    display: grid;
+    grid-template-columns: 100px 180px 120px 150px 100px 100px 80px 80px 100px 100px 120px 100px;
+    gap: 15px;
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    align-items: center;
+    transition: background 0.2s ease;
+}
+
+.rvm-variation-row:hover {
+    background: #f9f9f9;
+}
+
+.rvm-variation-row.rvm-saving {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+/* Main Image Column */
+.rvm-col-image {
+    position: relative;
+}
+
+.rvm-main-image-preview {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    display: block;
+    cursor: pointer;
+}
+
+.rvm-main-image-preview:hover {
+    opacity: 0.8;
+}
+
+.rvm-image-upload-btn {
+    margin-top: 5px;
+    padding: 4px 8px;
+    font-size: 11px;
+    width: 100%;
+}
+
+/* Variation Title Column */
+.rvm-col-title {
+    display: flex;
+    flex-direction: column;
+}
+
+.rvm-variation-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 5px 0;
+}
+
+.rvm-variation-attrs {
+    font-size: 12px;
+    color: #666;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Gallery Column */
+.rvm-col-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.rvm-gallery-preview {
+    display: flex;
+    gap: 3px;
+    flex-wrap: wrap;
+}
+
+.rvm-gallery-thumb {
+    position: relative;
+    width: 30px;
+    height: 30px;
+}
+
+.rvm-gallery-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 3px;
+    border: 1px solid #ddd;
+}
+
+.rvm-gallery-remove {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 14px;
+    height: 14px;
+    padding: 0;
+    min-height: 0;
+    font-size: 10px;
+    line-height: 1;
+    border-radius: 50%;
+    background: #d63638;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    display: none;
+}
+
+.rvm-gallery-thumb:hover .rvm-gallery-remove {
+    display: block;
+}
+
+.rvm-add-gallery-btn {
+    padding: 4px 8px;
+    font-size: 11px;
+    white-space: nowrap;
+}
+
+/* Swatch Column */
+.rvm-col-swatch {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.rvm-swatch-type {
+    padding: 4px 8px;
+    font-size: 12px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+.rvm-swatch-color-wrap {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.rvm-swatch-color-input {
+    width: 70px !important;
+    padding: 4px !important;
+    font-size: 11px !important;
+}
+
+.rvm-swatch-image-preview {
+    width: 40px;
+    height: 40px;
+    border-radius: 3px;
+    border: 1px solid #ddd;
+    overflow: hidden;
+    display: none;
+}
+
+.rvm-swatch-image-preview.has-image {
+    display: block;
+}
+
+.rvm-swatch-image-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.rvm-upload-swatch-image {
+    padding: 4px 8px;
+    font-size: 11px;
+    white-space: nowrap;
+}
+
+/* Input Columns */
+.rvm-col-input input,
+.rvm-col-input select {
+    width: 100%;
+    padding: 6px 8px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    font-size: 13px;
+}
+
+.rvm-col-input input:focus,
+.rvm-col-input select:focus {
+    outline: none;
+    border-color: #2271b1;
+    box-shadow: 0 0 0 1px #2271b1;
+}
+
+.rvm-col-input input[type="number"] {
+    text-align: right;
+}
+
+/* Dimensions Column */
+.rvm-col-dimensions {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.rvm-dim-row {
+    display: flex;
+    gap: 3px;
+    align-items: center;
+}
+
+.rvm-dim-label {
+    font-size: 10px;
+    color: #666;
+    width: 15px;
+}
+
+.rvm-dim-input {
+    flex: 1;
+    padding: 3px 5px !important;
+    font-size: 11px !important;
+}
+
+/* Actions Column */
+.rvm-col-actions {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+}
+
+.rvm-btn-duplicate,
+.rvm-btn-delete {
+    padding: 5px 8px;
+    height: auto;
+    font-size: 12px;
+    min-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rvm-btn-duplicate {
+    background: #2271b1;
+    color: #fff;
+    border-color: #2271b1;
+}
+
+.rvm-btn-duplicate:hover {
+    background: #135e96;
+    border-color: #135e96;
+    color: #fff;
+}
+
+.rvm-btn-delete {
+    background: #d63638;
+    color: #fff;
+    border-color: #d63638;
+}
+
+.rvm-btn-delete:hover {
+    background: #b32d2e;
+    border-color: #b32d2e;
+    color: #fff;
+}
+
+/* Save Indicator */
+.rvm-save-indicator {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 14px;
+    display: none;
+    z-index: 100000;
+}
+
+.rvm-save-indicator.show {
+    display: block;
+}
+
+/* Loading */
+#rvm-loading {
+    text-align: center;
+    padding: 40px 20px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin: 20px 0;
+}
+
+#rvm-loading .spinner {
+    float: none;
+    margin: 0 auto 10px;
+}
+
+/* Color Picker Override */
+.wp-picker-container {
+    position: relative;
+}
+
+/* Responsive */
+@media (max-width: 1400px) {
+
+    .rvm-table-header,
+    .rvm-variation-row {
+        grid-template-columns: 90px 150px 100px 130px 90px 90px 70px 70px 90px 90px 100px 90px;
+        gap: 10px;
+        font-size: 11px;
+    }
+
+    .rvm-main-image-preview {
+        width: 90px;
+        height: 90px;
+    }
+}
+/* Modal Styles */
+.rvm-modal {
+    position: fixed;
+    z-index: 100000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rvm-modal-content {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 500px;
+    max-height: 80vh;
+    overflow: hidden;
+}
+
+.rvm-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #ddd;
+    background: #f5f5f5;
+}
+
+.rvm-modal-header h3 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.rvm-modal-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+    padding: 0;
+    line-height: 1;
+}
+
+.rvm-modal-close:hover {
+    color: #d63638;
+}
+
+.rvm-modal-body {
+    padding: 20px;
+    max-height: 50vh;
+    overflow-y: auto;
+}
+
+.rvm-modal-footer {
+    padding: 15px 20px;
+    border-top: 1px solid #ddd;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.rvm-attr-row {
+    margin-bottom: 15px;
+}
+
+.rvm-attr-row label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.rvm-attr-row select {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* Generation Tools */
+.rvm-generation-tools {
+    background: #fff;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.rvm-generation-tools .button {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.rvm-generation-tools .dashicons {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+}
+
+.rvm-generation-info {
+    margin-left: auto;
+    font-size: 12px;
+    color: #666;
+    font-style: italic;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.dashicons.spin {
+    animation: spin 1s linear infinite;
+}
+
+/* Editable Attribute Dropdowns */
+.rvm-attr-row {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 5px;
+}
+
+.rvm-attr-row label {
+    font-size: 11px;
+    color: #666;
+    min-width: 50px;
+}
+
+.rvm-attr-select {
+    font-size: 12px;
+    padding: 4px 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: #fff;
+    min-width: 80px;
+}
+
+.rvm-attr-select:focus {
+    border-color: #B94A2A;
+    outline: none;
+}

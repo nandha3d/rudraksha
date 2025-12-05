@@ -1,0 +1,248 @@
+/* Base Swatches Styles */
+.variations .label {
+    display: block;
+    width: 100%;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.variations .value {
+    display: block;
+    width: 100%;
+}
+
+.rudraksha-swatches-wrapper {
+    display: block;
+    width: 100%;
+}
+
+.rudraksha-swatches {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.rudraksha-swatch-label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    cursor: pointer;
+    background: #fff;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    user-select: none;
+    position: relative;
+    min-width: 80px;
+}
+
+.rudraksha-swatch-label:hover {
+    border-color: #999;
+    background: #f9f9f9;
+}
+
+.rudraksha-swatch-label.selected {
+    border-color: #973b11;
+    background: #fff;
+    color: #333;
+    box-shadow: 0 0 0 2px rgba(151, 59, 17, 0.2), 0 0 12px rgba(151, 59, 17, 0.4);
+}
+
+.rudraksha-swatch-input {
+    display: none;
+}
+
+/* Disabled state */
+.rudraksha-swatch-label.disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    background: #f5f5f5;
+    color: #999;
+    pointer-events: none;
+}
+
+.rudraksha-swatch-label.disabled:hover {
+    border-color: #ddd;
+    background: #f5f5f5;
+}
+
+/* Card Layout for Design Swatches */
+.rudraksha-swatches.rudraksha-swatches-cards {
+    gap: 15px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.rudraksha-swatches.rudraksha-swatches-cards .rudraksha-swatch-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 15px;
+    width: 140px;
+    height: auto;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.rudraksha-swatches.rudraksha-swatches-cards .rudraksha-swatch-label:hover {
+    border-color: #ccc;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.rudraksha-swatches.rudraksha-swatches-cards .rudraksha-swatch-label.selected {
+    border-color: #973b11;
+    background: #fff;
+    color: #333;
+    box-shadow: 0 0 0 2px rgba(151, 59, 17, 0.2), 0 0 12px rgba(151, 59, 17, 0.4);
+}
+
+.rudraksha-swatches.rudraksha-swatches-cards .rudraksha-swatch-label.disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    background: #fafafa;
+}
+
+.rudraksha-swatches.rudraksha-swatches-cards .swatch-image {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.rudraksha-swatches.rudraksha-swatches-cards .swatch-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.rudraksha-swatches.rudraksha-swatches-cards .swatch-title {
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 1.4;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.rudraksha-swatches.rudraksha-swatches-cards .swatch-price {
+    font-size: 12px;
+    color: #777;
+}
+
+/* Button Layout (Default) */
+.rudraksha-swatches.rudraksha-swatches-buttons {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.rudraksha-swatches.rudraksha-swatches-buttons .rudraksha-swatch-label {
+    min-width: 80px;
+    text-align: center;
+}
+
+/* Color Swatch */
+.rudraksha-swatch-label.color {
+    padding: 2px;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ddd;
+    min-width: auto;
+}
+
+.rudraksha-swatch-label.color .swatch-color {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: block;
+}
+
+.rudraksha-swatch-label.color.selected {
+    border-color: #973b11;
+    box-shadow: 0 0 0 2px rgba(151, 59, 17, 0.2), 0 0 8px rgba(151, 59, 17, 0.4);
+}
+
+/* Small Image Swatch (Not Card) */
+.rudraksha-swatch-label.image {
+    padding: 2px;
+    width: 40px;
+    height: 40px;
+    min-width: auto;
+}
+
+.rudraksha-swatch-label.image .swatch-img-small {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 2px;
+}
+
+.rudraksha-swatch-label.image.selected {
+    border-color: #973b11;
+    box-shadow: 0 0 0 2px rgba(151, 59, 17, 0.2), 0 0 8px rgba(151, 59, 17, 0.4);
+}
+
+/* Tooltip (Simple) */
+.rudraksha-swatch-label .swatch-tooltip {
+    display: none;
+}
+
+/* Hide Price Range for Variable Products */
+.product-type-variable .summary>.price,
+.product-type-variable .summary>p.price {
+    display: none !important;
+}
+
+/* Custom Price Styling */
+.price del {
+    font-size: 0.7em;
+    color: #a5a5a5 !important;
+    opacity: 0.7;
+    margin-right: 5px;
+}
+
+.price ins {
+    font-size: 0.95em;
+    text-decoration: none;
+}
+
+.rudraksha-discount-badge {
+    display: inline-block;
+    background-color: #27ae60;
+    color: #fff;
+    font-size: 0.65em;
+    font-weight: bold;
+    padding: 2px 5px;
+    border-radius: 3px;
+    margin-left: 6px;
+    vertical-align: middle;
+}
+
+/* Product Title Styling */
+.single-product .product_title.entry-title,
+.single-product h1.product_title {
+    font-size: 1.5rem !important;
+    font-weight: 600 !important;
+    line-height: 1.3 !important;
+}
+
+/* Quantity Price Info */
+.quantity-price-info {
+    display: block;
+    font-size: 0.75em;
+    color: #666;
+    font-weight: normal;
+    margin-top: 5px;
+}
+
+/* Smooth transition for price updates */
+.woocommerce-variation-price .price {
+    transition: opacity 0.2s ease;
+}
