@@ -207,9 +207,10 @@ if ( ! function_exists( 'hello_shoppable_setup' ) ) :
 		add_theme_support( 'wp-block-styles' );
 
 		/* woocommerce support */
-		add_theme_support( 'wc-product-gallery-zoom' );
-	    add_theme_support( 'wc-product-gallery-lightbox' );
-	    add_theme_support( 'wc-product-gallery-slider' );
+		// Disabled native WooCommerce gallery features - using custom Swiper gallery instead
+		// add_theme_support( 'wc-product-gallery-zoom' );
+	    // add_theme_support( 'wc-product-gallery-lightbox' );
+	    // add_theme_support( 'wc-product-gallery-slider' );
 
 	    add_theme_support( 'responsive-embeds' );
 	}
@@ -556,3 +557,136 @@ function hello_shoppable_custom_product_gallery_assets() {
     }
 }
 add_action( 'wp_enqueue_scripts', 'hello_shoppable_custom_product_gallery_assets' );
+
+/**
+ * Force Critical Product Styles & Scripts
+ * Injected by Antigravity to override Elementor/Theme conflicts
+ */
+function rudraksha_force_product_styles() {
+    if ( is_product() ) {
+        ?>
+        <style type='text/css'>
+            /* FORCE TITLE SIZE */
+            body.single-product .elementor-heading-title, 
+            body.single-product h1.product_title, 
+            body.single-product h2.product_title,
+            body.single-product .entry-title,
+            h1.product_title,
+            .product_title {
+                font-family: 'Playfair Display', serif !important;
+                font-size: 56px !important; /* Reduced from 65px */
+                line-height: 1.2 !important;
+                color: #6d2911 !important;
+                font-weight: 700 !important;
+                margin-top: 30px !important;
+                margin-bottom: 20px !important;
+                word-wrap: break-word !important;
+                max-width: 550px !important; /* Force Fold/Wrap */
+                display: block !important;
+            }
+
+            /* FORCE ADD TO CART OUTLINE */
+            body.single-product button.single_add_to_cart_button,
+            body.single-product .single_add_to_cart_button.button {
+                background: transparent !important;
+                background-color: transparent !important;
+                background-image: none !important;
+                color: #6d2911 !important;
+                border: 1px solid #6d2911 !important;
+                text-shadow: none !important;
+                box-shadow: none !important;
+            }
+            body.single-product button.single_add_to_cart_button:hover {
+                background-color: #6d2911 !important;
+                color: #ffffff !important;
+            }
+        </style>
+        
+        <script type="text/javascript">
+        (function() {
+            function forceRudrakshaStyles() {
+                // Force Title
+                var titles = document.querySelectorAll('.product_title, h1.elementor-heading-title, .entry-title, .woocommerce-products-header__title');
+                for (var i = 0; i < titles.length; i++) {
+                    titles[i].style.setProperty('font-size', '56px', 'important'); // Reduced
+                    titles[i].style.setProperty('font-family', "'Playfair Display', serif", 'important');
+                    titles[i].style.setProperty('color', '#6d2911', 'important');
+                    titles[i].style.setProperty('line-height', '1.2', 'important');
+                    titles[i].style.setProperty('margin-top', '30px', 'important');
+                    titles[i].style.setProperty('margin-bottom', '20px', 'important');
+                    titles[i].style.setProperty('max-width', '550px', 'important'); // Force Fold
+                    titles[i].style.setProperty('display', 'block', 'important');
+                }
+
+                // Force Add to Cart styling
+                var btns = document.querySelectorAll('button.single_add_to_cart_button, .single_add_to_cart_button.button');
+                for (var j = 0; j < btns.length; j++) {
+                    btns[j].style.setProperty('background', 'transparent', 'important');
+                    btns[j].style.setProperty('background-color', 'transparent', 'important');
+                    btns[j].style.setProperty('border', '1px solid #6d2911', 'important');
+                    btns[j].style.setProperty('color', '#6d2911', 'important');
+                    btns[j].style.setProperty('box-shadow', 'none', 'important');
+                    
+                    if (!btns[j].hasAttribute('data-hover-init')) {
+                        btns[j].setAttribute('data-hover-init', 'true');
+                        btns[j].addEventListener('mouseenter', function() {
+                            this.style.setProperty('background-color', '#6d2911', 'important');
+                            this.style.setProperty('color', '#ffffff', 'important');
+                        });
+                        btns[j].addEventListener('mouseleave', function() {
+                            this.style.setProperty('background-color', 'transparent', 'important');
+                            this.style.setProperty('color', '#6d2911', 'important');
+                        });
+                    }
+                }
+                
+                // Reposition Price: Robust Move
+                // 1. Find Price Element (try widget wrapper first, then direct element)
+                var priceEl = document.querySelector('.elementor-widget-woocommerce-product-price');
+                if (!priceEl) priceEl = document.querySelector('.summary > p.price');
+                if (!priceEl) priceEl = document.querySelector('.product-info p.price');
+                
+                // 2. Find Rating Element (try widget wrapper first)
+                var ratingEl = document.querySelector('.elementor-widget-woocommerce-product-rating');
+                if (!ratingEl) ratingEl = document.querySelector('.woocommerce-product-rating');
+                
+                // 3. Move Logic
+                if (priceEl && ratingEl && ratingEl.parentNode) {
+                    // Check if already correct position
+                    var next = ratingEl.nextElementSibling;
+                    if (next !== priceEl) {
+                        try {
+                            // Insert Price AFTER Rating
+                            ratingEl.parentNode.insertBefore(priceEl, next);
+                            
+                            // Style adjustment for visibility
+                            if (priceEl.style) {
+                                priceEl.style.marginTop = '15px';
+                                priceEl.style.marginBottom = '15px';
+                                priceEl.style.display = 'block';
+                            }
+                        } catch(e) { console.log('Price move error', e); }
+                    }
+                }
+            }
+
+            // Run immediately
+            forceRudrakshaStyles();
+
+            // Run on Load
+            window.addEventListener('load', forceRudrakshaStyles);
+            document.addEventListener('DOMContentLoaded', forceRudrakshaStyles);
+
+            // Run persistently to catch Elementor/Ajax
+            var attempts = 0;
+            var interval = setInterval(function() {
+                forceRudrakshaStyles();
+                attempts++;
+                if (attempts > 10) clearInterval(interval); // Stop after 5 seconds
+            }, 500);
+        })();
+        </script>
+        <?php
+    }
+}
+add_action( 'wp_footer', 'rudraksha_force_product_styles', 999 );

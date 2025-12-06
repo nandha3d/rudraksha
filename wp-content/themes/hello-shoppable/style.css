@@ -10552,3 +10552,229 @@ body[class*=woocommerce] ul.products li .product-compare-wishlist .yith-wcwl-wis
 .single-product .site-content {
   padding-top: 20px !important;
 }
+
+/* ==============================================================
+   CURVED HEADER STYLES
+   ============================================================== */
+
+/* Royal Elementor Addons Header - Curved Bottom */
+.wpr-header-wrap,
+.elementor-location-header {
+  position: relative;
+  z-index: 100;
+}
+
+/* The curved bottom edge */
+.wpr-header-wrap::after,
+.elementor-location-header::after {
+  content: '';
+  position: absolute;
+  bottom: -40px;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background: inherit;
+  clip-path: ellipse(55% 100% at 50% 0%);
+  z-index: -1;
+}
+
+/* Alternative: If your header has a specific background color, use this */
+.elementor-location-header.curved-header::after {
+  background: #f5f0e8;
+  /* Match your header background - adjust as needed */
+}
+
+/* For headers with the cream/beige background like in your screenshot */
+.wpr-header-wrap[style*="background"],
+.elementor-section[data-element_type="section"]:first-child {
+  position: relative;
+}
+
+/* Ensure content below header has proper spacing */
+.elementor-location-header+.site-content,
+.wpr-header-wrap+.site-content,
+.elementor-location-header+main,
+.wpr-header-wrap+main {
+  margin-top: 30px;
+}
+
+/* Mobile adjustments - smaller curve on mobile */
+@media screen and (max-width: 768px) {
+
+  .wpr-header-wrap::after,
+  .elementor-location-header::after {
+    bottom: -25px;
+    height: 50px;
+  }
+
+  .elementor-location-header+.site-content,
+  .wpr-header-wrap+.site-content {
+    margin-top: 20px;
+  }
+}
+
+/* ==============================================================
+   PRODUCT GALLERY FIXES - OVERRIDES
+   ============================================================== */
+
+/* Main slider container */
+.single-product .product-gallery-slider {
+  position: relative !important;
+  overflow: hidden !important;
+  border-radius: 30px !important;
+}
+
+/* Swiper slide - image container */
+.single-product .product-gallery-slider .swiper-slide {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #fefaf1 !important;
+  height: 100% !important;
+  width: 100% !important;
+  overflow: hidden !important;
+  cursor: zoom-in !important;
+}
+
+/* IMAGE - FILL THE ENTIRE SQUARE */
+.single-product .product-gallery-slider .swiper-slide img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  transition: transform 0.4s ease !important;
+}
+
+/* Zoomed state */
+.single-product .product-gallery-slider .swiper-slide.zoomed {
+  cursor: zoom-out !important;
+  z-index: 999 !important;
+}
+
+.single-product .product-gallery-slider .swiper-slide.zoomed img {
+  transform: scale(2.5) !important;
+}
+
+/* Inner image wrapper if exists */
+.single-product .product-gallery-slider .swiper-slide .woocommerce-product-gallery__image,
+.single-product .product-gallery-slider .swiper-slide .woocommerce-product-gallery__image--placeholder {
+  width: 100% !important;
+  height: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* NAVIGATION ARROWS - INSIDE THE SLIDER */
+.single-product .product-gallery-slider .swiper-button-prev,
+.single-product .product-gallery-slider .swiper-button-next {
+  width: 40px !important;
+  height: 40px !important;
+  background: rgba(255, 255, 255, 0.95) !important;
+  border: none !important;
+  border-radius: 50% !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15) !important;
+  opacity: 0 !important;
+  transition: all 0.3s ease !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  margin-top: 0 !important;
+}
+
+.single-product .product-gallery-slider .swiper-button-prev {
+  left: 15px !important;
+}
+
+.single-product .product-gallery-slider .swiper-button-next {
+  right: 15px !important;
+}
+
+.single-product .product-gallery-slider:hover .swiper-button-prev,
+.single-product .product-gallery-slider:hover .swiper-button-next {
+  opacity: 1 !important;
+}
+
+.single-product .product-gallery-slider .swiper-button-prev:hover,
+.single-product .product-gallery-slider .swiper-button-next:hover {
+  background: #ffffff !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2) !important;
+  transform: translateY(-50%) scale(1.05) !important;
+}
+
+.single-product .product-gallery-slider .swiper-button-prev:after,
+.single-product .product-gallery-slider .swiper-button-next:after {
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  color: #333 !important;
+}
+
+/* FORCE PRODUCT PAGE TITLE SIZE */
+body.single-product h1.product_title,
+body.single-product .entry-title,
+body.single-product .elementor-heading-title,
+body.single-product h1 {
+  font-size: 64px !important;
+  letter-spacing: -2px !important;
+  line-height: 1.1 !important;
+  color: #6d2911 !important;
+  font-family: 'Playfair Display', serif !important;
+  font-weight: 700 !important;
+}
+
+/* REFINED CART & BUTTON LAYOUT */
+div.product form.cart,
+.woocommerce-variation-add-to-cart {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  gap: 15px !important;
+}
+
+/* 1. Qty Box */
+.quantity {
+  order: 1 !important;
+  margin-right: 15px !important;
+}
+
+.quantity .qty {
+  background-color: transparent !important;
+  background: transparent !important;
+  border: 1px solid #6d2911 !important;
+  color: #6d2911 !important;
+  border-radius: 4px !important;
+  height: 48px !important;
+}
+
+/* 2. Add to Cart (Outline, Secondary) */
+.single_add_to_cart_button {
+  order: 3 !important;
+  background-color: transparent !important;
+  border: 1px solid #6d2911 !important;
+  color: #6d2911 !important;
+  font-weight: 700 !important;
+  border-radius: 4px !important;
+  height: 48px !important;
+  padding: 0 30px !important;
+}
+
+.single_add_to_cart_button:hover {
+  background-color: #6d2911 !important;
+  color: #ffffff !important;
+}
+
+/* 3. Buy Now (Filled, Primary) */
+.rudraksha-buy-now-button {
+  order: 2 !important;
+  background-color: #6d2911 !important;
+  border: 1px solid #6d2911 !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  border-radius: 4px !important;
+  height: 48px !important;
+  padding: 0 30px !important;
+  margin: 0 !important;
+}
+
+.rudraksha-buy-now-button:hover {
+  background-color: #8a3c20 !important;
+  border-color: #8a3c20 !important;
+}
