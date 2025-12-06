@@ -165,14 +165,14 @@ class Rudraksha_Theme_Colors {
 				color: var(--rudraksha-primary-dark) !important;
 			}
 			
-			/* ALL Buttons - Comprehensive */
+			/* ALL Buttons - Comprehensive (excluding gallery nav buttons) */
 			.button,
-			button:not(.rudraksha-gallery-thumb-btn):not(.wp-picker-clear):not(.wp-picker-default),
+			button:not(.rudraksha-gallery-thumb-btn):not(.wp-picker-clear):not(.wp-picker-default):not(.gallery-nav-btn),
 			input[type="submit"],
 			input[type="button"],
 			.wp-block-button__link,
 			.woocommerce a.button,
-			.woocommerce button.button,
+			.woocommerce button.button:not(.gallery-nav-btn),
 			.woocommerce input.button,
 			.woocommerce #respond input#submit,
 			.woocommerce a.button.alt,
@@ -197,12 +197,12 @@ class Rudraksha_Theme_Colors {
 			}
 			
 			.button:hover,
-			button:not(.rudraksha-gallery-thumb-btn):not(.wp-picker-clear):not(.wp-picker-default):hover,
+			button:not(.rudraksha-gallery-thumb-btn):not(.wp-picker-clear):not(.wp-picker-default):not(.gallery-nav-btn):hover,
 			input[type="submit"]:hover,
 			input[type="button"]:hover,
 			.wp-block-button__link:hover,
 			.woocommerce a.button:hover,
-			.woocommerce button.button:hover,
+			.woocommerce button.button:not(.gallery-nav-btn):hover,
 			.woocommerce input.button:hover,
 			.woocommerce #respond input#submit:hover,
 			.woocommerce a.button.alt:hover,
@@ -264,21 +264,22 @@ class Rudraksha_Theme_Colors {
 				border: 2px solid <?php echo esc_attr( $primary ); ?> !important;
 			}
 			
-			/* Product Gallery Slider with Glow */
+			/* Product Gallery Slider - NO glow animation */
 			.product-gallery-slider {
-				border: 2px solid <?php echo esc_attr( $this->hex_to_rgba( $primary, 0.3 ) ); ?> !important;
-				animation: borderGlowTheme 3s ease-in-out infinite;
+				border: 2px solid #e8d9c5 !important;
+				animation: none !important;
+				box-shadow: none !important;
 			}
 			
-			@keyframes borderGlowTheme {
-				0%, 100% {
-					border-color: <?php echo esc_attr( $this->hex_to_rgba( $primary, 0.3 ) ); ?>;
-					box-shadow: 0 0 20px <?php echo esc_attr( $this->hex_to_rgba( $primary, 0.1 ) ); ?>;
-				}
-				50% {
-					border-color: <?php echo esc_attr( $this->hex_to_rgba( $primary, 0.7 ) ); ?>;
-					box-shadow: 0 0 35px <?php echo esc_attr( $this->hex_to_rgba( $primary, 0.3 ) ); ?>;
-				}
+			/* Gallery Navigation Buttons - Keep them white */
+			.gallery-nav-btn {
+				background: rgba(255, 255, 255, 0.9) !important;
+				border: none !important;
+				color: #333 !important;
+			}
+			
+			.gallery-nav-btn:hover {
+				background: #ffffff !important;
 			}
 			
 			/* Gallery Thumbnail Active */
